@@ -18,8 +18,8 @@ namespace CleanArchitecture.Application.Features.Videos.Queries.GetVideosList
 
         public async Task<List<VideosVm>> Handle(GetVideosListQuery request, CancellationToken cancellationToken)
         {
-            IEnumerable<Video> videoList = await _videoRepository.GetByUsername(request._Username);
-            List<VideosVm> videosVmList = _mapper.Map<List<VideosVm>>(videoList);
+            var videoList = await _videoRepository.GetByUsername(request.Username);
+            var videosVmList = _mapper.Map<List<VideosVm>>(videoList);
 
             return videosVmList;
         }

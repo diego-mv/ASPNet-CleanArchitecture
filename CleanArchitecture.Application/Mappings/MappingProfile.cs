@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CleanArchitecture.Application.Features.Streamers.Commands.CreateStreamer;
 using CleanArchitecture.Application.Features.Videos.Queries.GetVideosList;
 using CleanArchitecture.Domain;
 
@@ -7,9 +8,12 @@ namespace CleanArchitecture.Application.Mappings
 {
     public class MappingProfile : Profile
     {
-        MappingProfile()
+        public MappingProfile()
         {
-            CreateMap<Video, VideosVm>();
+            CreateMap<Video, VideosVm>().ReverseMap();
+            
+            //Streamer
+            CreateMap<Streamer, CreateStreamerCommand>().ReverseMap();
         }
     }
 }
